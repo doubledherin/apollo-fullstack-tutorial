@@ -11,6 +11,7 @@
     "@types/react-dom": "^16.9.4",
     "apollo-cache-inmemory": "^1.6.2",
     "apollo-client": "^2.6.3",
+    "apollo-codegen": "^0.20.2",
     "apollo-link-http": "^1.5.15",
     "emotion": "^9.2.12",
     "graphql": "^14.4.2",

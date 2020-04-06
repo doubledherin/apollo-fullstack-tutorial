@@ -43,7 +43,7 @@ export const resolvers: AppResolvers = {
       if (queryResult) {
         return queryResult.cartItems.includes(launch.id)
       } 
-      return false;
+      return false
     }
   },
 }

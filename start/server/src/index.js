@@ -1,4 +1,5 @@
 const { ApolloServer } = require('apollo-server')
+require('dotenv').config()
 const typeDefs = require('./schema')
 const { createStore } = require('./utils')
 const resolvers = require('./resolvers')
@@ -12,14 +13,14 @@ const store = createStore()
 const server = new ApolloServer({
   context: async ({ req }) => {
     // simple auth check on every request
-    const auth = req.headers && req.headers.authorization || '';
-    const email = Buffer.from(auth, 'base64').toString('ascii');
-    if (!isEmail.validate(email)) return { user: null };
+    const auth = req.headers && req.headers.authorization || ''
+    const email = Buffer.from(auth, 'base64').toString('ascii')
+    if (!isEmail.validate(email)) return { user: null }
     // find a user by their email
-    const users = await store.users.findOrCreate({ where: { email } });
-    const user = users && users[0] || null;
+    const users = await store.users.findOrCreate({ where: { email } })
+    const user = users && users[0] || null
 
-    return { user: { ...user.dataValues } };
+    return { user: { ...user.dataValues } }
   },
   typeDefs,
   resolvers,
@@ -29,6 +30,7 @@ const server = new ApolloServer({
   })
 })
 
-server.listen().then(({ url }) => {
+const PORT = 4001
+server.listen({ port: PORT }).then(({ url }) => {
   console.log(`🚀 Server ready at ${url}`)
-});
+})

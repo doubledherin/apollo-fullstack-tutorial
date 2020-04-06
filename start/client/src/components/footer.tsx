@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'react-emotion';
+import React from 'react'
+import styled from 'react-emotion'
 
 import MenuItem from './menu-item';
 import LogoutButton from '../containers/logout-button';

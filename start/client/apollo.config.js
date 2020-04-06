@@ -3,4 +3,4 @@ module.exports = {
     name: 'Space Explorer [web]',
     service: 'space-explorer',
   },
-};
+}
